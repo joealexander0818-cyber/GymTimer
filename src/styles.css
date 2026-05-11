@@ -1,0 +1,396 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #1a1a2e;
+    color: #ffffff;
+}
+
+/* 页面容器 */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 60px;
+}
+
+.page.active {
+    display: block;
+}
+
+/* 头部 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #16213e;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    color: #4cc9f0;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: auto;
+}
+
+/* 主内容区 */
+main {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* 模板列表 */
+.templates h2 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #aaa;
+}
+
+.template-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.template-item {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.template-item:active {
+    transform: scale(0.98);
+    background: #1f3460;
+}
+
+.template-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.template-item p {
+    font-size: 14px;
+    color: #888;
+}
+
+/* 按钮 */
+button {
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background: #4cc9f0;
+    color: #000;
+    padding: 15px 30px;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    background: #2d3a5a;
+    color: #fff;
+    padding: 12px 20px;
+}
+
+.btn-danger {
+    background: #e94560;
+    color: #fff;
+    padding: 12px 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.btn-large {
+    width: 100%;
+    padding: 18px;
+    font-size: 18px;
+}
+
+.history-entry {
+    margin-top: 30px;
+}
+
+.history-entry button {
+    width: 100%;
+}
+
+/* 训练页 */
+.current-exercise {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.current-exercise h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.weight-display {
+    font-size: 18px;
+    color: #4cc9f0;
+}
+
+.set-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.set-count {
+    font-size: 20px;
+    color: #aaa;
+}
+
+.timer-display {
+    text-align: center;
+    font-size: 72px;
+    font-weight: 300;
+    margin: 30px 0;
+    color: #4cc9f0;
+}
+
+.timer-display.large {
+    font-size: 96px;
+}
+
+.timer-controls {
+    margin-bottom: 30px;
+}
+
+.weight-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #16213e;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.weight-input label {
+    color: #aaa;
+}
+
+.weight-input input {
+    width: 80px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    background: #2d3a5a;
+    color: #fff;
+}
+
+/* 休息页 */
+.rest-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rest-info p {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.rest-controls {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* 动作切换页 */
+.next-exercise-info {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.next-exercise-info p {
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.next-exercise-info h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.next-exercise-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 训练结束页 */
+#workout-note {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: #16213e;
+    color: #fff;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+/* 历史记录页 */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.history-item {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.history-item h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.history-item p {
+    font-size: 14px;
+    color: #888;
+}
+
+.history-detail {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #2d3a5a;
+}
+
+.history-item.expanded .history-detail {
+    display: block;
+}
+
+/* 编辑模板页 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #aaa;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #16213e;
+    color: #fff;
+}
+
+.exercises-editor {
+    margin-bottom: 20px;
+}
+
+.exercises-editor h3 {
+    margin-bottom: 15px;
+    color: #aaa;
+    font-size: 14px;
+}
+
+#exercises-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.exercise-item {
+    background: #16213e;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.exercise-item .row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.exercise-item input {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background: #2d3a5a;
+    color: #fff;
+}
+
+.exercise-item .small-input {
+    width: 70px;
+    flex: none;
+}
+
+.exercise-item button {
+    background: #e94560;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* 提示信息 */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4cc9f0;
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    z-index: 1000;
+    animation: fadeInOut 2s ease;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}

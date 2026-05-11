@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>GymTimer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+    <!-- 首页 -->
+    <div id="page-home" class="page active">
+        <header>
+            <h1>GymTimer</h1>
+        </header>
+        <main>
+            <section class="templates">
+                <h2>选择训练</h2>
+                <div id="template-list" class="template-list"></div>
+                <button id="btn-manage-templates" class="btn-secondary">管理模板</button>
+            </section>
+            <section class="history-entry">
+                <button id="btn-history" class="btn-secondary">历史记录</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- 训练页 -->
+    <div id="page-workout" class="page">
+        <header>
+            <button id="btn-back-home" class="btn-back">←</button>
+            <h1 id="workout-title">训练中</h1>
+        </header>
+        <main>
+            <div class="current-exercise">
+                <h2 id="exercise-name">动作名称</h2>
+                <p class="weight-display">重量: <span id="exercise-weight">0</span> kg</p>
+            </div>
+            <div class="set-info">
+                <p class="set-count">第 <span id="current-set">1</span> / <span id="total-sets">4</span> 组</p>
+            </div>
+            <div class="timer-display">
+                <span id="timer">01:30</span>
+            </div>
+            <div class="timer-controls">
+                <button id="btn-complete-set" class="btn-primary btn-large">完成本组</button>
+            </div>
+            <div class="weight-input">
+                <label>重量 (kg):</label>
+                <input type="number" id="input-weight" step="0.5" min="0">
+            </div>
+        </main>
+    </div>
+
+    <!-- 休息计时页 -->
+    <div id="page-rest" class="page">
+        <header>
+            <h1>休息中</h1>
+        </header>
+        <main>
+            <div class="rest-info">
+                <p id="rest-exercise-name">动作名称</p>
+                <p>下一组: 第 <span id="rest-next-set">2</span> 组</p>
+            </div>
+            <div class="timer-display large">
+                <span id="rest-timer">01:30</span>
+            </div>
+            <div class="rest-controls">
+                <button id="btn-skip-rest" class="btn-secondary">跳过休息</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 动作切换页 -->
+    <div id="page-next-exercise" class="page">
+        <header>
+            <h1>动作完成</h1>
+        </header>
+        <main>
+            <div class="next-exercise-info">
+                <p>下一个动作:</p>
+                <h2 id="next-exercise-name">动作名称</h2>
+                <p>上次重量: <span id="next-exercise-weight">0</span> kg</p>
+            </div>
+            <div class="next-exercise-controls">
+                <button id="btn-start-next" class="btn-primary btn-large">开始</button>
+                <button id="btn-end-workout" class="btn-secondary">结束训练</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 训练结束页 -->
+    <div id="page-finish" class="page">
+        <header>
+            <h1>训练完成</h1>
+        </header>
+        <main>
+            <textarea id="workout-note" placeholder="记录今天的训练感悟（选填）"></textarea>
+            <button id="btn-save-workout" class="btn-primary btn-large">保存并结束</button>
+        </main>
+    </div>
+
+    <!-- 历史记录页 -->
+    <div id="page-history" class="page">
+        <header>
+            <button id="btn-back-from-history" class="btn-back">←</button>
+            <h1>历史记录</h1>
+        </header>
+        <main>
+            <div id="history-list" class="history-list"></div>
+        </main>
+    </div>
+
+    <!-- 模板管理页 -->
+    <div id="page-templates" class="page">
+        <header>
+            <button id="btn-back-from-templates" class="btn-back">←</button>
+            <h1>管理模板</h1>
+        </header>
+        <main>
+            <div id="manage-template-list" class="template-list"></div>
+            <button id="btn-add-template" class="btn-primary">+ 新建模板</button>
+        </main>
+    </div>
+
+    <!-- 编辑模板页 -->
+    <div id="page-edit-template" class="page">
+        <header>
+            <button id="btn-back-from-edit" class="btn-back">←</button>
+            <h1>编辑模板</h1>
+        </header>
+        <main>
+            <div class="form-group">
+                <label>模板名称:</label>
+                <input type="text" id="edit-template-name">
+            </div>
+            <div class="exercises-editor">
+                <h3>动作列表</h3>
+                <div id="exercises-list"></div>
+                <button id="btn-add-exercise" class="btn-secondary">+ 添加动作</button>
+            </div>
+            <button id="btn-save-template" class="btn-primary btn-large">保存模板</button>
+            <button id="btn-delete-template" class="btn-danger">删除模板</button>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // 注册 Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+</html>
